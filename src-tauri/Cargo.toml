@@ -1,0 +1,32 @@
+[package]
+name = "scribeocr"
+version = "0.1.0"
+description = "rust based file explorer."
+authors = [""]
+license = ""
+repository = ""
+edition = "2021"
+
+# [build]
+# target-dir="H:\\rust_deps\\"
+
+[profile.release]
+# strip = true  # Automatically strip symbols from the binary.
+# opt-level = "z"
+# lto = true
+# panic = "abort"
+
+# [lib]
+# crate-type = ["dylib"]
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[build-dependencies]
+tauri-build = { version = "1.5.1", features = [] }
+
+[dependencies]
+tauri = { version = "1.5.4", features = [ "os-all", "devtools", "fs-read-file", "path-all", "protocol-all", "shell-open"] }
+
+[features]
+# this feature is used for production builds or when `devPath` points to the filesystem
+# DO NOT REMOVE!!
+custom-protocol = ["tauri/custom-protocol"]
